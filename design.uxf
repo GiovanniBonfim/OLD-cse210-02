@@ -1,0 +1,16 @@
+<diagram program="umletino" version="14.3.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>40</x><y>30</y><w>210</w><h>170</h></coordinates><panel_attributes>_Card: Class_
+--
+value: int=0
+--
+roll_card(): None
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>260</x><y>30</y><w>210</w><h>170</h></coordinates><panel_attributes>_Card: Director_
+--
+card: int=0
+is_playing: bool = True
+score: int = 300
+total_score: int = 0
+--
+start_game(): None
+update_point(): None
+update_screen(): None
+</panel_attributes><additional_attributes></additional_attributes></element></diagram>
