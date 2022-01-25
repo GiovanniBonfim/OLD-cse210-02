@@ -15,8 +15,6 @@ class Director:
         self.user_guess = ""
         self.card_1 = 0
         self.card_2 = 0
-        self.my_card_1 = Card()
-        self.my_card_2 = Card()
 
     def start_game(self):
         """This Method will manage the flow of the 
@@ -26,7 +24,6 @@ class Director:
             self.update_screen()
             self.update_score()
             self.play_again()
-            print()
 
     def update_score(self):
         """This Method will update the score for
