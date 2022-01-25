@@ -1,5 +1,6 @@
 import random
 
+
 class Card:
     """ This will be able to track the points and the next card
     """

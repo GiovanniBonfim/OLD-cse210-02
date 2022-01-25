@@ -1,9 +1,11 @@
 from card import Card
 
+
 class Director:
     """This Class will manage the flow of the game
     and the update of the score in screen
     """
+
     def __init__(self):
         """ This is the constructor of class
         declaring the attributes to use in the game
@@ -21,10 +23,10 @@ class Director:
         game
         """
         while self.is_playing:
-            self.play_again()
             self.update_screen()
             self.update_score()
-
+            self.play_again()
+            print()
 
     def update_score(self):
         """This Method will update the score for
@@ -32,29 +34,34 @@ class Director:
         """
         if self.user_guess.lower() == "h":
             # higher
-            if self.card_2 >= self.card_1:
+            if self.card_2 > self.card_1:
                 self.score += 100
-                print(f"Your score is {self.score}")
+                print(f"Correct! Your score is {self.score}")
             elif self.card_2 < self.card_1:
                 self.score -= 75
-                print(f"Your score is {self.score}")
+                print(f"Wrong! Your score is {self.score}")
                 if self.score <= 0:
                     print("Game Over")
                     print(f"Your score is {self.score}")
                     self.is_playing = False
+            elif self.card_2 == self.card_1:
+                print(f"It is a tie!")
         elif self.user_guess.lower() == "l":
             # lower
-            if self.card_2 <= self.card_1:
+            if self.card_2 < self.card_1:
                 self.score += 100
-                print(f"Your score is {self.score}")
+                print(f"Correct! Your score is {self.score}")
             elif self.card_2 > self.card_1:
                 self.score -= 75
-                print(f"Your score is {self.score}")
-                if self.score <=0:
+                print(f"Wrong! Your score is {self.score}")
+                if self.score <= 0:
                     print("Game Over")
                     print(f"Your score is {self.score}")
                     self.is_playing = False
-
+            elif self.card_2 == self.card_1:
+                print(f"It is a tie!")
+        else:
+            print("Invalid input! please type [h/l]")
 
     def update_screen(self):
         """This Method will be printing on screen the
@@ -64,10 +71,9 @@ class Director:
         self.card_1 = self.my_card_1.roll_card()
         self.card_2 = self.my_card_2.roll_card()
         print(f"The first card is: {self.card_1}")
-        self.user_guess = input(" Higher or Lower? [h/l] ")
+        self.user_guess = input("Higher or Lower? [h/l] ")
         print(f"The next card is: {self.card_2}")
         # print(f"Your score is {self.score}")
-
 
     def play_again(self):
         """ Get User input for continue game
@@ -77,4 +83,10 @@ class Director:
             nothing
         """
         self.next_game = input("Would you like to play again? [y/n] ")
-        self.is_playing = (self.next_game.lower() == 'y')
+        # self.is_playing = self.next_game.lower() == 'y'
+        if self.next_game.lower() == 'y':
+            self.is_playing
+        else:
+            self.is_playing = False
+            print(
+                f"Nice game, Thank you for playing!\nYour total score is: {self.score}")
