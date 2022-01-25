@@ -29,14 +29,14 @@ def main():
 
         # lower
         elif guess.lower() == "l":
-            if r1 >= r2:
+            if r1 < r2:
                 print(f"Correct! Next Card was: {r2}")
                 score += 100
                 print(f"Your score is: {score}")
                 playAgain = input("Play again? [y/n]: ")
                 if score <= 0:
                     playAgain = "n"
-            elif r1 < r2:
+            elif r1 >= r2:
                 print(f"Wrong! Next Card was: {r2}")
                 score -= 75
                 print(f"Your score is: {score}")
