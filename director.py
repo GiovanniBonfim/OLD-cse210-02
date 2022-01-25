@@ -1,5 +1,4 @@
 from card import Card
-import random
 
 
 class Director:
@@ -11,12 +10,12 @@ class Director:
         """ This is the constructor of class
         declaring the attributes to use in the game
         """
-        self.total_score = 0
         self.score = 300
         self.is_playing = True
         self.card_1 = 0
         self.card_2 = 0
         self.user_guess = ""
+        self.card = Card()
 
     def start_game(self):
         """This Method will manage the flow of the 
@@ -33,8 +32,8 @@ class Director:
         output for the game and the update during the game.
         """
 
-        self.card_1 = random.randint(1, 13)
-        self.card_2 = random.randint(1, 13)
+        self.card_1 = self.card.roll_card()
+        self.card_2 = self.card.roll_card()
         print(f"The first card is: {self.card_1}")
         self.user_guess = input(" Higher or Lower? [h/l] ")
         print(f"The next card is: {self.card_2}")
