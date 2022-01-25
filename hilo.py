@@ -12,16 +12,22 @@ def main():
 
         # higher
         if guess.lower() == "h":
-            if r1 >= r2:
+            if r2 > r1:
                 print(f"Correct! Next Card was: {r2}")
                 score += 100
                 print(f"Your score is: {score}")
                 playAgain = input("Play again? [y/n]: ")
                 if score <= 0:
                     playAgain = "n"
-            elif r1 < r2:
+            elif r2 < r1:
                 print(f"Wrong! Next Card was: {r2}")
                 score -= 75
+                print(f"Your score is: {score}")
+                playAgain = input("Play again? [y/n]: ")
+                if score <= 0:
+                    playAgain = "n"
+            elif r1 == r2:
+                print(f"It's a tie : {r2}")
                 print(f"Your score is: {score}")
                 playAgain = input("Play again? [y/n]: ")
                 if score <= 0:
@@ -29,20 +35,28 @@ def main():
 
         # lower
         elif guess.lower() == "l":
-            if r1 < r2:
+            if r2 < r1:
                 print(f"Correct! Next Card was: {r2}")
                 score += 100
                 print(f"Your score is: {score}")
                 playAgain = input("Play again? [y/n]: ")
                 if score <= 0:
                     playAgain = "n"
-            elif r1 >= r2:
+            elif r2 > r1:
                 print(f"Wrong! Next Card was: {r2}")
                 score -= 75
                 print(f"Your score is: {score}")
                 playAgain = input("Play again? [y/n]: ")
                 if score <= 0:
                     playAgain = "n"
+            elif r1 == r2:
+                print(f"It's a tie : {r2}")
+                print(f"Your score is: {score}")
+                playAgain = input("Play again? [y/n]: ")
+                if score <= 0:
+                    playAgain = "n"
+        else:
+            print("Invalid input! please type [y/n]")
         print()
 
     print(f"The game is finished!\nYour score is: {score}")

@@ -1,5 +1,4 @@
 from card import Card
-import random
 
 
 class Director:
@@ -11,63 +10,68 @@ class Director:
         """ This is the constructor of class
         declaring the attributes to use in the game
         """
-        self.total_score = 0
         self.score = 300
         self.is_playing = True
+        self.user_guess = ""
         self.card_1 = 0
         self.card_2 = 0
-        self.user_guess = ""
+        self.my_card_1 = Card()
+        self.my_card_2 = Card()
 
     def start_game(self):
         """This Method will manage the flow of the 
         game
         """
         while self.is_playing:
-
             self.update_screen()
             self.update_score()
             self.play_again()
-
-    def update_screen(self):
-        """This Method will be printing on screen the
-        output for the game and the update during the game.
-        """
-
-        self.card_1 = random.randint(1, 13)
-        self.card_2 = random.randint(1, 13)
-        print(f"The first card is: {self.card_1}")
-        self.user_guess = input(" Higher or Lower? [h/l] ")
-        print(f"The next card is: {self.card_2}")
+            print()
 
     def update_score(self):
         """This Method will update the score for
         the player and the total score
         """
-
         if self.user_guess.lower() == "h":
             # higher
-            if self.card_1 <= self.card_2:
+            if self.card_2 > self.card_1:
                 self.score += 100
-                print(f"Correct! Your score is {self.score}")
-            elif self.card_1 > self.card_2:
+                print(f"Correct! Your score is: {self.score}")
+            elif self.card_2 < self.card_1:
                 self.score -= 75
-                print(f"Wrong! Your score is {self.score}")
+                print(f"Wrong! Your score is: {self.score}")
                 if self.score <= 0:
                     print("Game Over")
                     print(f"Your score is {self.score}")
                     self.is_playing = False
+            elif self.card_2 == self.card_1:
+                print(f"It is a tie!")
         elif self.user_guess.lower() == "l":
             # lower
-            if self.card_1 >= self.card_2:
+            if self.card_2 < self.card_1:
                 self.score += 100
                 print(f"Correct! Your score is {self.score}")
-            elif self.card_1 > self.card_2:
+            elif self.card_2 > self.card_1:
                 self.score -= 75
                 print(f"Wrong! Your score is {self.score}")
                 if self.score <= 0:
                     print("Game Over")
                     print(f"Your score is {self.score}")
                     self.is_playing = False
+            elif self.card_2 == self.card_1:
+                print(f"It is a tie!")
+        else:
+            print("Invalid input! please type [h/l]")
+
+    def update_screen(self):
+        """This Method will be printing on screen the
+        output for the game and the update during the game.
+        """
+        self.card_1 = self.my_card_1.roll_card()
+        self.card_2 = self.my_card_2.roll_card()
+        print(f"The first card is: {self.card_1}")
+        self.user_guess = input("Higher or Lower? [h/l] ")
+        print(f"The next card is: {self.card_2}")
 
     def play_again(self):
         """ Get User input for continue game
@@ -76,12 +80,11 @@ class Director:
         Returns:
             nothing
         """
-        # self.next_game = input("Would you like to play again? [y/n] ")
-        # self.is_playing = (self.next_game.lower() == 'y')
-
-        self.ask_user = input("Would you like to play again? [y/n] ")
-        while self.ask_user.lower() == "y":
-            if self.ask_user == "y":
-                return
-            elif self.ask_user == "n":
-                print("Game Over!")
+        self.next_game = input("Would you like to play again? [y/n] ")
+        if self.next_game.lower() == 'y':
+            self.is_playing
+        else:
+            self.is_playing = False
+            print()
+            print(
+                f"Nice game, Thank you for playing!\nYour total score is: {self.score}")
