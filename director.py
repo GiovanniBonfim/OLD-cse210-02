@@ -68,7 +68,7 @@ class Director:
         """
         self.card_1 = self.my_card_1.roll_card()
         self.card_2 = self.my_card_2.roll_card()
-        print(f"The first card is: {self.card_1}")
+        print(f"\nThe first card is: {self.card_1}")
         self.user_guess = input("Higher or Lower? [h/l] ")
         print(f"The next card is: {self.card_2}")
 
@@ -79,7 +79,7 @@ class Director:
         Returns:
             nothing
         """
-        self.next_game = input("Would you like to play again? [y/n] ")
+        self.next_game = input("\nWould you like to play again? [y/n] ")
         if self.next_game.lower() == 'y':
             self.is_playing
         else:
