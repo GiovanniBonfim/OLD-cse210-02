@@ -1,16 +1,22 @@
-<diagram program="umletino" version="14.3.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>40</x><y>30</y><w>210</w><h>170</h></coordinates><panel_attributes>_Card: Class_
+<diagram program="umletino" version="14.3.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>40</x><y>30</y><w>210</w><h>240</h></coordinates><panel_attributes>_Card: Class_
 --
 value: int=0
 --
 roll_card(): None
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>260</x><y>30</y><w>210</w><h>170</h></coordinates><panel_attributes>_Card: Director_
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>260</x><y>30</y><w>210</w><h>240</h></coordinates><panel_attributes>_Director: Class_
 --
-card: int=0
 is_playing: bool = True
 score: int = 300
-total_score: int = 0
+user_guess = ""
+card_1: int = 0
+card_2: int = 0
+my_card_1 = Card()
+my_card_2 = Cad()
+
 --
 start_game(): None
-update_point(): None
+update_score(): None
 update_screen(): None
+play_again(): None
+
 </panel_attributes><additional_attributes></additional_attributes></element></diagram>

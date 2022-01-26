@@ -22,12 +22,12 @@ Hilo is a game in which the player guesses if the next card drawn by the dealer 
 
 ## Interface
 ---
-![Interface of the Game](hilo-screenshot.png)
+![Interface of the Game](./img/hilo-screenshot.png)
 
 ## Design
 ---
 We are going to organize our code in two classes Card y Director
-![Class Design](design.png)
+![Class Design](./design_support/design.png)
 
 The Card class will be showing a card every time that is called.
 The Director Class will be managing the flow of the game and keeping track the score.
