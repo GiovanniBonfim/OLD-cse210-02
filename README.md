@@ -32,3 +32,15 @@ We are going to organize our code in two classes Card y Director
 The Card class will be showing a card every time that is called.
 The Director Class will be managing the flow of the game and keeping track the score.
 
+## Software Used
+---
+Visual Studio Code - Code Editor
+Git Repository - distributed version control system
+
+## Team Members
+---
+Alan Montoya - gazalem@hotmail.com
+Ronilo Gulay - iloveronilo@gmail.com
+Giovanni Bonfim - bon21010@byui.edu
+Julie Ann Doricarion - juliemenda@gmail.com
+
